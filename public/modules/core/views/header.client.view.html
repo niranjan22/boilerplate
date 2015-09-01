@@ -1,6 +1,6 @@
 <div class="row border-bottom" data-ng-controller="HeaderController">
     <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
+        <div ng-show="authentication.user" class="navbar-header">
             <span minimaliza-sidebar></span>
         </div>
         <ul class="nav navbar-top-links navbar-right" data-ng-hide="authentication.user">
