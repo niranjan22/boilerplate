@@ -1,0 +1,44 @@
+<section data-ng-controller="UsersController" data-ng-init="findOne()">
+  <div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-12">
+      <h2>View User</h2>
+        <ol class="breadcrumb">
+          <li>
+            <a href="#!/">Home</a>
+          </li>
+          <li>
+            <a href="#!/users">Users</a>
+          </li>
+          <li class="active">
+            <strong>View User</strong>
+          </li> 
+        </ol>            
+    </div>
+  </div>
+  <!-- general form elements -->
+  <div class="ibox float-e-margins" >
+    <div class="ibox-content">    
+      <div class="row">
+      <dl class="dl-horizontal">
+        <dt>Display Name </dt><dd>{{ user.displayName}}</dd>
+        <dt>Provider </dt><dd>{{ user.provider}}</dd>
+        <dt>Username </dt><dd>{{ user.username}}</dd>
+        <dt>Created </dt><dd>{{ user.created | date }}</dd>
+        <dt>Email </dt><dd>{{ user.email}}</dd>
+        <dt>Last Name </dt><dd>{{ user.lastName}}</dd>
+        <dt>First Name </dt><dd>{{ user.firstName}}</dd>
+      </dl>
+      </div>
+      <div class="row">
+        <div>
+          <a class="btn btn-primary" href="/#!/users/{{user._id}}/edit">
+            <i class="glyphicon glyphicon-edit"></i>
+          </a>
+          <a class="btn btn-primary" data-ng-click="remove();">
+            <i class="glyphicon glyphicon-trash"></i>
+          </a>
+        </div>              
+      </div>
+    </div><!-- /.ibox-content -->
+  </div><!-- /.ibox -->
+<section>
