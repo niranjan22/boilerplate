@@ -25,7 +25,11 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				$scope.authentication.user = response;
 
 				// And redirect to the index page
-				$location.path('/users');
+        if ($scope.authentication.user.roles.indexOf('admin')>-1) {
+            $location.path('/users');
+        } else {
+          $location.path('/');
+        }
 			}).error(function(response) {
 				$scope.error = response.message;
 			});
