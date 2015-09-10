@@ -41,6 +41,15 @@
                 <label class="control-label" for="password">Password</label>
                 <input type="Password" ng-model="user.password" id="password" class="form-control" placeholder="" required />
               </div>              
+              <div class="col-md-3 form-group">
+                <label class="control-label" for="roles">Roles</label>
+                <select multiple id="roles" class="form-control" size="3"
+                  ng-model="user.roles"
+                  ng-required="true">
+                  <option value="admin">Admin</option>
+                  <option value="user">User</option>
+                </select>
+              </div>
             </div>
             <div class="row">
               <div data-ng-show="error" class="text-danger">
