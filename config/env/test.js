@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://localhost/invoice-test',
+	db: 'mongodb://localhost/boilerplate-test',
 	port: 3001,
 	app: {
-		title: 'Invoice - Test Environment'
+		title: 'Boilerplate - Test Environment'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',

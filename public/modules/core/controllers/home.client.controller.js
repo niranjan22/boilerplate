@@ -7,7 +7,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 		$scope.authentication = Authentication;
 
         // Some example string
-        $scope.helloText = 'Welcome to Invoice';
-        $scope.descriptionText = 'This is a web application to create Invoices';
+        $scope.helloText = 'Welcome to Boilerplate Application';
+        $scope.descriptionText = 'This is a web application to create new projects';
 	}
 ]);

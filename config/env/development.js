@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://localhost/invoice-dev',
+	db: 'mongodb://localhost/boilerplate-dev',
 	app: {
-		title: 'Invoice - Development Environment'
+		title: 'Boilerplate - Development Environment'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',
