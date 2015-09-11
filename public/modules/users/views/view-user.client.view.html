@@ -30,8 +30,7 @@
           </dl>
           <span>Roles</span>
           <ul class="list-group">
-            <li class="list-group-item">User</li>
-            <li class="list-group-item">Admin</li>
+            <li ng-repeat="role in user.roles" class="list-group-item">{{ role }}</li>
           </ul>
         </div>
       </div>      
