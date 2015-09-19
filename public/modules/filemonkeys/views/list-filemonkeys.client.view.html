@@ -1,0 +1,97 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>File Manager</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="#!/">Home</a>
+            </li>
+            <li class="active">
+                <strong>File Manager</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div data-ng-controller="FilemonkeysController" data-ng-init="find()" class="wrapper wrapper-content">
+<script type="text/ng-template" id="fileList.html">
+  <div class="modal-header">
+      <h3 class="modal-title">Files2</h3>
+  </div>
+  <div class="modal-body">
+    <div class="btn btn-primary btn-block" 
+          ngf-select="uploadFiles($files,client)"
+          multiple="multiple">
+          Upload Files
+    </div>   
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="file in client.files">
+        {{file.filename}}
+        <a ng-click="removefile(file._id, $index, client)" class="glyphicon glyphicon-trash"></a>
+      </li>        
+    </ul>           
+  </div>
+  <div class="modal-footer">
+      <button class="btn btn-primary" ng-click="ok()">OK</button>
+      <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+  </div>
+</script>
+<div class="row">
+<div class="col-lg-3">
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+            <div class="file-manager">
+                <h5>Show:</h5>
+                <a href="" class="file-control active">All</a>
+                <a href="" class="file-control">Documents</a>
+
+                <div class="hr-line-dashed"></div>
+                <div  class="btn btn-primary btn-block" 
+                      ngf-select="uploadFiles($files)"
+                      multiple="multiple">
+                      Upload Files
+                </div>
+                <div class="hr-line-dashed"></div>
+                <h5>Folders</h5>
+                <ul class="folder-list" style="padding: 0">
+                    <li><a href=""><i class="fa fa-folder"></i> Files</a></li>
+                    <li><a href=""><i class="fa fa-folder"></i> Pictures</a></li>
+                    <li><a href=""><i class="fa fa-folder"></i> Books</a></li>
+                </ul>
+                <h5 class="tag-title">Tags</h5>
+                <ul class="tag-list" style="padding: 0">
+                    <li><a href="">Family</a></li>
+                    <li><a href="">Work</a></li>
+                    <li><a href="">Home</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-9 animated fadeInRight">
+<div class="row">
+<div class="col-lg-12">
+<div data-ng-repeat="filemonkey in filemonkeys" class="file-box">
+    <div class="file">
+        <a href="">
+            <span class="corner"></span>
+
+            <div class="icon">
+                <i class="fa fa-file"></i>
+            </div>
+            <div class="file-name">
+                <a target="_blank" href="/filemonkeys/{{filemonkey._id}}" download="{{filemonkey.filename}}">{{filemonkey.filename}}</a>
+                <br/>
+                <small>Added: {{filemonkey.created | date}}</small>
+                <br/>
+                <a target="_blank" href="/web/viewer.html?file=/filemonkeys/{{filemonkey._id}}"><i class="glyphicon glyphicon-search"></i></a>
+                <a ng-click="remove(filemonkey)"><i class="glyphicon glyphicon-trash"></i></a>
+            </div>
+        </a>
+    </div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
