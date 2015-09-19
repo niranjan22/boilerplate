@@ -17,7 +17,8 @@
 		"angular-ui-router": "~0.2.11",
     "metisMenu": "~2.0.2",
     "fontawesome": "~4.3.0",
-    "PACE": "https://github.com/HubSpot/pace.git#~1.0.2",
-    "moment": "~2.10.6"
+    "ng-file-upload": "~7.1.0",
+    "ng-file-upload-shim": "~7.2.0",    
+    "PACE": "https://github.com/HubSpot/pace.git#~1.0.2"
 	}
 }
