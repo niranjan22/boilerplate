@@ -10,13 +10,14 @@ var mongoose = require('mongoose'),
   request = require('request'),  
 	errorHandler = require('./errors.server.controller'),
 	Filemonkey = mongoose.model('Filemonkey'),
+  config = require('../../config/config'),  
 	_ = require('lodash');
 
 //file upload
 var copyFile = function (srcFileName, srcFilePath){
   var result = {};
   var fileUUID = uuid.v4();
-  var destPath = 'C:\\Users\\Rajasekar\\Desktop\\STEP\\yeoman\\Angular_Seed_Project_Grunt\\docs\\' + fileUUID;
+  var destPath = config.filestore + fileUUID;
   var is = fs.createReadStream(srcFilePath);
   var os = fs.createWriteStream(destPath);
   if(is.pipe(os)) {
@@ -59,12 +60,12 @@ var uploadFile = function (req, res, next) {
 };
 
 var downloadFile = function (req, res, fetchFileId) {
-  var file = fs.readFileSync('C:\\Users\\Rajasekar\\Desktop\\STEP\\yeoman\\Angular_Seed_Project_Grunt\\docs\\' + fetchFileId);
+  var file = fs.readFileSync(config.filestore + fetchFileId);
   res.send(file);  
 };
 
 var deleteFile = function(fileuuid) {
-	var filePath = 'C:\\Users\\Rajasekar\\Desktop\\STEP\\yeoman\\Angular_Seed_Project_Grunt\\docs\\' + fileuuid;
+	var filePath = config.filestore + fileuuid;
   fs.unlink(filePath, function (err) { 
     if (err) {
       return false;
@@ -101,7 +102,6 @@ exports.create = function(req, res) {
  * Show the current Filemonkey
  */
 exports.read = function(req, res) {
-  console.log('read');
 	res.jsonp(req.filemonkey);
 };
 
@@ -136,7 +136,6 @@ exports.delete = function(req, res) {
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      console.log('filemonkey.fileuuid', filemonkey.fileuuid);
       deleteFile(filemonkey.fileuuid);
       res.jsonp('success');
     }
@@ -163,7 +162,6 @@ exports.list = function(req, res) {
  * Filemonkey middleware
  */
 exports.filemonkeyByID = function(req, res, next, id) { 
-  console.log('byid');
  	Filemonkey.findById(id).populate('user', 'displayName').exec(function(err, filemonkey) {
 		if (err) return next(err);
 		if (! filemonkey) return next(new Error('Failed to load Filemonkey ' + id));
@@ -173,7 +171,7 @@ exports.filemonkeyByID = function(req, res, next, id) {
 };
 
 exports.fetchFile = function (req, res) {
-  var file = fs.readFileSync('C:\\Users\\Rajasekar\\Desktop\\STEP\\yeoman\\Angular_Seed_Project_Grunt\\docs\\' + req.filemonkey.fileuuid);
+  var file = fs.readFileSync(config.filestore + req.filemonkey.fileuuid);
   res.send(file);
 };
 

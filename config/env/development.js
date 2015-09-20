@@ -2,6 +2,7 @@
 
 module.exports = {
 	db: 'mongodb://localhost/boilerplate-dev',
+  filestore: 'C:\\Users\\RAJASE~1\\AppData\\Local\\Temp\\skt\\',
 	app: {
 		title: 'Boilerplate - Development Environment'
 	},
