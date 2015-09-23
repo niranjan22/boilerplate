@@ -2,6 +2,7 @@
 
 module.exports = {
 	db: 'mongodb://localhost/boilerplate-test',
+  filestore: 'C:\\Users\\RAJASE~1\\AppData\\Local\\Temp\\skt\\',
 	port: 3001,
 	app: {
 		title: 'Boilerplate - Test Environment'
