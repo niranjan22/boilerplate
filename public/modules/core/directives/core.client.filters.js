@@ -2,6 +2,6 @@
 
 angular.module('core').filter('yesNo', function (){
   return function (input) {
-    return input ? "Yes" : "No";
+    return input ? 'Yes' : 'No';
   }
 });
