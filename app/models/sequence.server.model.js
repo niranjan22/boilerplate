@@ -11,6 +11,8 @@ var mongoose = require('mongoose'),
  */
 var SequenceSchema = new Schema({
   name: String,
-  seqNumber: Number
+  seqNumber: Number,
+	created: {type: Date, default: Date.now},
+	user: {type: Schema.ObjectId, ref: 'User'}  
 });
 mongoose.model('Sequence', SequenceSchema);

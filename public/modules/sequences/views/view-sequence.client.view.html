@@ -1,0 +1,60 @@
+<section data-ng-controller="SequencesController" data-ng-init="findOne()">
+  <div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-12">
+      <h2>View Sequence</h2>
+        <ol class="breadcrumb">
+          <li>
+            <a href="#!/">Home</a>
+          </li>
+          <li>
+            <a href="#!/sequences">Sequences</a>
+          </li>
+          <li class="active">
+            <strong>Sequences</strong>
+          </li> 
+        </ol>            
+    </div>
+  </div>
+  <!-- general form elements -->
+  <!-- <div class="ibox float-e-margins"  data-ng-show="((authentication.user) && (authentication.user._id == sequence.user._id))"> -->
+  <div class="ibox float-e-margins" >
+    <div class="ibox-content">    
+      <div class="row">
+      <dl class="dl-horizontal">
+      
+      
+        <dt>Name </dt><dd>{{ sequence.name }}</dd>
+      
+      
+      
+      
+        <dt>Seq Number </dt><dd>{{ sequence.seqNumber }}</dd>
+      
+      
+      
+      </dl>
+      
+      
+      
+      
+      
+      
+      </div>
+      <div class="row">
+        <div>
+          <a class="btn btn-primary" href="/#!/sequences/{{sequence._id}}/edit">
+            <i class="glyphicon glyphicon-edit"></i>
+          </a>
+          <a class="btn btn-primary" data-ng-click="remove();">
+            <i class="glyphicon glyphicon-trash"></i>
+          </a>
+        </div>              
+      </div>
+    </div><!-- /.ibox-content -->
+  </div><!-- /.ibox -->
+  
+      
+  
+      
+    
+<section>
